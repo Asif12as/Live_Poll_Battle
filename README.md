@@ -2,7 +2,7 @@
 
 A real-time polling application that allows users to create or join poll rooms and vote live with instant result updates across all participants.
 
-![Live Poll Battle](https://via.placeholder.com/800x400?text=Live+Poll+Battle)
+![Live Poll Battle](https://livepollbattle.vercel.app/)
 
 ## Features
 
