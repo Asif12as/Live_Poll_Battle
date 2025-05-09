@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = require("socket.io")(server, {
   cors: {
-    origin: "https://livepollbattle.vercel.app/", 
+    origin: "https://livepollbattle.vercel.app", 
     methods: ["GET", "POST"]
   }
 });
