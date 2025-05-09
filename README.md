@@ -34,7 +34,7 @@ A real-time polling application that allows users to create or join poll rooms a
 
 ### Server Setup
 1. Clone this repository:
-git clone https://github.com/yourusername/live-poll-battle.git
+git clone https://github.com/Asif12as/Live_Poll_Battle.git
 cd live-poll-battle
 
 2. Install server dependencies:
@@ -106,19 +106,6 @@ This architecture allows for a seamless real-time experience where all users see
 - Express
 - Socket.io
 - UUID (for generating unique room codes)
-
-## Project Structure
-
-live-poll-battle/
-├── client/              # React frontend
-│   ├── public/          # Static files
-│   └── src/             # React source code
-│       ├── components/  # React components
-│       ├── App.js       # Main application component
-│       └── socket.js    # Socket.io client connection
-│
-└── server/              # Node.js backend
-    └── index.js         # Server code with Socket.io logic
 
 ## License
 
