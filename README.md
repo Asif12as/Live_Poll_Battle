@@ -5,11 +5,17 @@ A real-time polling application that allows users to create or join poll rooms a
 [![Live Poll Battle](https://livepollbattle.vercel.app/)](https://livepollbattle.vercel.app/)
 
 
-## 📸 Demo Preview
+## 📸 Demo Previews
 
-![App Screenshot1](./Preview1.JPEG)
-![App Screenshot2](./Preview2.JPEG)
-![App ScreenshotResultView](./Result.JPEG)
+### Preview 1
+![Preview 1](./Preview1.JPG)
+
+### Preview 2
+![Preview 2](./Preview2.JPG)
+
+### Result
+![Result](./Result.JPG)
+
 
 
 ## Features
