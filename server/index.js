@@ -5,12 +5,13 @@ const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
+const io = require("socket.io")(server, {
   cors: {
-    origin: "*",
+    origin: "https://livepollbattle.vercel.app/", 
     methods: ["GET", "POST"]
   }
 });
+
 
 // In-memory storage for rooms
 const rooms = {};
