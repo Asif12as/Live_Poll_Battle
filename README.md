@@ -8,6 +8,9 @@ A real-time polling application that allows users to create or join poll rooms a
 
 ## 📸 Demo Previews
 
+### Home
+![Home](./PreviewHome.JPG)
+
 ### Preview 1
 ![Preview 1](./Preview1.JPG)
 
