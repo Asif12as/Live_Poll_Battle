@@ -34,71 +34,96 @@ A real-time polling application that allows users to create or join poll rooms a
 
 ### Server Setup
 1. Clone this repository:
-```bash
 git clone https://github.com/yourusername/live-poll-battle.git
 cd live-poll-battle
 
-Install server dependencies:
+2. Install server dependencies:
 cd server
 npm install
 
-Start the server:
+3. Start the server:
 npm run dev
 
 The server will run on http://localhost:5000.
 
-Client Setup
-Open a new terminal window and navigate to the client directory:
+### Client Setup
+1. Open a new terminal window and navigate to the client directory:
 cd ../client
 
-Install client dependencies:
+2. Install client dependencies:
 npm install
 
-Start the client:
+3. Start the client:
 npm start
-
 
 The client will run on http://localhost:3000 and should automatically open in your browser.
 
-How It Works
-Technical Architecture
+## How It Works
+
+### Technical Architecture
+
 This application uses a client-server architecture with WebSockets for real-time communication:
 
-Frontend: React.js for the UI, Socket.io client for real-time communication
-Backend: Node.js with Express, Socket.io for WebSocket connections
-Vote State Sharing and Room Management
+- **Frontend**: React.js for the UI, Socket.io client for real-time communication
+- **Backend**: Node.js with Express, Socket.io for WebSocket connections
+
+### Vote State Sharing and Room Management
+
 The application implements a real-time state synchronization approach:
 
-Room Management:
+1. **Room Management**:
+   - Rooms are stored in an in-memory object on the server
+   - Each room has a unique ID (6-character alphanumeric code)
+   - Rooms store information about the poll question, options, users, and voting status
+   - When a room is created, a timer starts that will automatically close voting after 60 seconds
 
-Rooms are stored in an in-memory object on the server
-Each room has a unique ID (6-character alphanumeric code)
-Rooms store information about the poll question, options, users, and voting status
-When a room is created, a timer starts that will automatically close voting after 60 seconds
-Vote State Sharing:
+2. **Vote State Sharing**:
+   - When a user votes, the vote is sent to the server via WebSocket
+   - The server updates the room's vote count and marks the user as having voted
+   - The server then broadcasts the updated vote state to all connected users in that room
+   - All clients receive the update and re-render their UI to show the current results
+   - Votes are also stored in the user's browser localStorage to prevent re-voting if they refresh
 
-When a user votes, the vote is sent to the server via WebSocket
-The server updates the room's vote count and marks the user as having voted
-The server then broadcasts the updated vote state to all connected users in that room
-All clients receive the update and re-render their UI to show the current results
-Votes are also stored in the user's browser localStorage to prevent re-voting if they refresh
-Real-time Updates:
+3. **Real-time Updates**:
+   - Socket.io enables bidirectional, event-based communication
+   - The server broadcasts events for votes, timer updates, user joining/leaving, and reactions
+   - Clients listen for these events and update their local state accordingly
+   - The React UI re-renders automatically when the state changes
 
-Socket.io enables bidirectional, event-based communication
-The server broadcasts events for votes, timer updates, user joining/leaving, and reactions
-Clients listen for these events and update their local state accordingly
-The React UI re-renders automatically when the state changes
 This architecture allows for a seamless real-time experience where all users see the same poll state at the same time, without requiring any manual refresh.
 
-Technologies Used
-Frontend
-React.js
-React Router
-Socket.io Client
-Chart.js (for analytics)
-Canvas Confetti (for celebrations)
-Backend
-Node.js
-Express
-Socket.io
-UUID (for generating unique room codes)
+## Technologies Used
+
+### Frontend
+- React.js
+- React Router
+- Socket.io Client
+- Chart.js (for analytics)
+- Canvas Confetti (for celebrations)
+
+### Backend
+- Node.js
+- Express
+- Socket.io
+- UUID (for generating unique room codes)
+
+## Project Structure
+
+live-poll-battle/
+├── client/              # React frontend
+│   ├── public/          # Static files
+│   └── src/             # React source code
+│       ├── components/  # React components
+│       ├── App.js       # Main application component
+│       └── socket.js    # Socket.io client connection
+│
+└── server/              # Node.js backend
+    └── index.js         # Server code with Socket.io logic
+
+## License
+
+MIT
+
+## Author
+
+Md Ashif
